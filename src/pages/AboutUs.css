@@ -1,0 +1,66 @@
+.about-container {
+    background-color: #141416;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 100vh;
+  }
+  
+  .about-title {
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  
+  .about-text {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #cccccc;
+    line-height: 1.6;
+  }
+  
+  .about-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 80px 0px 100px 0px;
+  }
+  
+  .about-card {
+    background-color: #242424;
+    padding: 30px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .about-card h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  .about-card p {
+    color: #cccccc;
+  }
+  
+  .team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  
+  .team-member {
+    width: 120px;
+    height: 120px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #cccccc;
+  }
+  

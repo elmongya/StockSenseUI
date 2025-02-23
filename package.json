@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/dm-sans": "^5.1.1",
+    "@fontsource/montserrat": "^5.1.1",
+    "@radix-ui/react-select": "^2.1.6",
+    "@shadcn/ui": "^0.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.9",
+    "plotly.js": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-plotly.js": "^2.6.0",
+    "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -34,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
   }
 }
