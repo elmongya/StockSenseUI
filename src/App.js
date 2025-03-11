@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import NotFound from "./pages/NotFound";
 import StockPage from './pages/StockPage';
 import AboutUs from './pages/AboutUs';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/stock/:stockName" element={<StockPage/>} />
         
-        
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutUs />} />
 
         {/* 404 Page - This must be the last route */}

@@ -1,0 +1,114 @@
+/* Global Reset for fonts and layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #141416;
+    color: #fff;
+}
+
+.register-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.left-side {
+    flex: 1;
+    background: url('./image2.png') center/cover no-repeat, #141416;
+    background-size: cover;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+label {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #2d2f31;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0af8ff;
+    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+}
+
+.register-button {
+    background: linear-gradient(90deg, #c400ff, #c400ff); /* Solid purple */
+    background-size: 200% 100%;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.5s ease, background-position 0.5s ease;
+}
+
+.register-button:hover {
+    background: linear-gradient(90deg, #c400ff, #c400ff, #c400ff, #c400ff, #5ecfff, #0af8ff, #5ecfff, #5ecfff, #c400ff);
+    background-size: 200% 100%;
+    animation: gradient-stream 5s infinite linear;
+}
+
+@keyframes gradient-stream {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.login-text {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.login-text a {
+    color: #0af8ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
