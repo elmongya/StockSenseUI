@@ -1,3 +1,9 @@
+/* THIS IS THE .CSS FILE FOR HOME PAGE*/
+/* THIS IS THE .CSS FILE FOR HOME PAGE*/
+/* THIS IS THE .CSS FILE FOR HOME PAGE*/
+/* THIS IS THE .CSS FILE FOR HOME PAGE*/
+/* THIS IS THE .CSS FILE FOR HOME PAGE*/
+
 .App {
   text-align: center;
 }
@@ -32,7 +38,8 @@
 
 .nav-links {
   display: flex;
-  gap: 30px; /* Adjust spacing between links */
+  gap: 20px; /* Adjust spacing between links */
+  padding: 10px;
 }
 
 .nav-links a {
@@ -78,11 +85,15 @@
 }
 
 #top-section-header {
-  font-weight: bold;
-  font-family: "Montserrat";
-  font-size: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('./pages/Home/image3.png') center/contain no-repeat;
+  background-size: contain;
+  min-height: 40vh;
+  margin-top: 0px;
+  margin-bottom: 0px; /* Reduce margin to bring text closer */
 }
 
 #top-section-text {
@@ -127,9 +138,8 @@
   position: absolute;
 }
 
-
 .get-started-btn {
-  background-color: #2563eb; 
+  background-color: #5ecfff; /* Updated color */
   color: white;
   font-family: "Montserrat";
   font-size: 16px;
@@ -142,12 +152,12 @@
 }
 
 .get-started-btn:hover {
-  background-color: #e65c00; /* Slightly darker shade on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  background-color: #c400ff; /* Updated hover color */
+  transform: scale(1.05);
 }
 
 .get-started-btn:active {
-  transform: scale(0.98); /* Subtle click effect */
+  transform: scale(0.98);
 }
 
 /* ////////////////////// MARKET UPDATE SECTION ////////////////////// */
@@ -441,13 +451,14 @@
   position: relative; /*Needed to position the dropdown properly*/
   background-color: #1c1c1c;
   width: 100%;
+  max-width: 700px; /* Increased from 500px */
   border-radius: 9999px;
   height: 2.5rem;
   padding: 0 15px;
   box-shadow: 0px 0px 8px #ddd;
   display: flex;
   align-items: center;
-  margin: 50px 0px;
+  margin: 20px auto; /* Centered horizontally */
   box-sizing: border-box;
 
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import NotFound from "./pages/NotFound";
-import StockPage from './pages/StockPage';
-import AboutUs from './pages/AboutUs';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import StockPage from './pages/StockPage/StockPage';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 
 function App() {
