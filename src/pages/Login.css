@@ -1,132 +1,148 @@
 /* Global Reset for fonts and layout */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  body {
-    background-color: #141416;
-    color: #fff;
-  }
-  
-  .login-container {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .left-side {
-    flex: 1;
-    background: url('./image2.png') center/cover no-repeat, #141416;
-    background-size: cover;
-  }
-  
-  .right-side {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  h2 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-align: center;
-    font-weight: 600;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  
-  label {
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  input {
-    padding: 12px;
-    border: 1px solid #dfe6e9;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #2d2f31;
-    color: #fff;
-    transition: all 0.3s ease;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: #0af8ff;
-    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
-  }
-  
-  .forgot-password {
-    align-self: flex-end;
-    color: #0af8ff;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
-  .login-button {
-    background: linear-gradient(90deg, #c400ff, #c400ff); /* Solid purple */
-    background-size: 200% 100%;
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.5s ease, background-position 0.5s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #141416;
+  color: #fff;
+}
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding-left: 5%;  /* Add space on the left */
+  padding-right: 5%; /* Add space on the right */
+}
+
+
+.left-side {
+  flex: 1.2;  /* Give the left side more space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('./image2.png') center/contain no-repeat;
+  background-size: contain; /* Ensure the whole image is visible */
+  min-height: 100vh;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.form-wrapper {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(5, 5, 5, 0.6);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+label {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #2d2f31;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0af8ff;
+  box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+}
+
+.forgot-password {
+  align-self: flex-end;
+  color: #0af8ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  background: linear-gradient(90deg, #c400ff, #c400ff); /* Solid purple */
+  background-size: 200% 100%;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.5s ease, background-position 0.5s ease;
 }
 
 .login-button:hover {
-    background: linear-gradient(90deg, #c400ff, #c400ff, #c400ff, #c400ff, #5ecfff, #0af8ff, #5ecfff, #5ecfff, #c400ff);
-    background-size: 200% 100%;
-    animation: gradient-stream 5s infinite linear;
+  background: linear-gradient(90deg, #c400ff, #c400ff, #c400ff, #c400ff, #5ecfff, #0af8ff, #5ecfff, #5ecfff, #c400ff);
+  background-size: 200% 100%;
+  animation: gradient-stream 5s infinite linear;
 }
 
 @keyframes gradient-stream {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
-  
-  .signup-text {
-    text-align: center;
-    color: #ffffff;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .signup-text a {
-    color: #0af8ff;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .signup-text a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Animation for background gradient */
-  @keyframes gradient-stream {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-  }
-  
+
+.signup-text {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-text a {
+  color: #0af8ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Animation for background gradient */
+@keyframes gradient-stream {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
