@@ -7,7 +7,7 @@ import StockPage from './pages/StockPage/StockPage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-
+import Learn from "./pages/Learn/Learn";
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/learn" element={<Learn />} />
 
         {/* 404 Page - This must be the last route */}
         <Route path="*" element={<NotFound />} />
