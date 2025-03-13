@@ -20,7 +20,7 @@ const Learn = () => {
 
   useEffect(() => {
     const fetchVideoDetails = async () => {
-      const API_KEY = "AIzaSyD7iIUzJF-NnVlWEEX0bUYqDag6twEHKSc";
+      const API_KEY = "YOUR-API-KEY-HERE";
       const videoDetails = await Promise.all(
         videoIds.map(async (id) => {
           const response = await axios.get(
