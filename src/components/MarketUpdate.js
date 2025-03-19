@@ -4,7 +4,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 import '../App.css';
 
 const MarketUpdate = () => {
-  const [activeTab, setActiveTab] = useState('Gainer');
+  const [activeTab, setActiveTab] = useState('Top');
 
   const tableData = [
     { game: 1, symbol: 'Amazon', ltp: 315.7, change24h: '+1.45%', quantity: '34,823', trend: [5, 10, 15, 20, 18, 16, 22] },
@@ -31,7 +31,7 @@ const MarketUpdate = () => {
 
       {/* Navigation Tabs */}
       <div style={{ display: 'flex', marginBottom: '16px' }}>
-        {['Gainer', 'Loser'].map((tab) => (
+        {['Top'].map((tab) => (
           <button key={tab} style={tabStyle(tab)} onClick={() => setActiveTab(tab)}>
             {tab}
           </button>

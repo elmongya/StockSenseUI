@@ -7,7 +7,7 @@ const GetStartedButton = () => {
   const username = localStorage.getItem("username"); // Get username from localStorage
 
   const handleClick = () => {
-    navigate("/login");
+    navigate("/Login");
   };
 
   return (

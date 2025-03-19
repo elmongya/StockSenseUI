@@ -73,6 +73,12 @@ const StockPage = () => {
     setStockData(stock_dummy_data[stockName])
   }, [stockName]);
 
+  const getScoreColor = (score) => {
+    const hue = (score / 100) * 120; // Red (0°) to Green (120°)
+    const lightness = 50 - (score / 100) * 25; // Bright to dark
+    return `hsl(${hue}, 100%, ${lightness}%)`;
+  };
+
   return (
     <>
       <Header />
@@ -82,7 +88,13 @@ const StockPage = () => {
           {stockData && (
             <div className="stock-score">
               <span className="score-label">StockSense Score:</span>
-              <span className="score-value">{stockData.score}</span>
+              {/* Apply dynamic color here */}
+              <span 
+                className="score-value" 
+                style={{ color: getScoreColor(stockData.score) }}
+              >
+                {stockData.score}
+              </span>
             </div>
           )}
         </div>

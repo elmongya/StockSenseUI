@@ -22,10 +22,10 @@ function App() {
 
         <Route path="/Newsfeed" element={<AINewsfeed/>} />
         
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/learn" element={<Learn />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/About" element={<AboutUs />} />
+        <Route path="/Learn" element={<Learn />} />
 
         {/* 404 Page - This must be the last route */}
         <Route path="*" element={<NotFound />} />

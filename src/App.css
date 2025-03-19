@@ -29,7 +29,8 @@
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: space-between; /* Changed from left */
+  padding: 0 20px; /* Add padding for better spacing */
 }
 
 .logo {
@@ -55,6 +56,12 @@
   margin-right: 8px;
 }
 
+.header-right-section {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* This ensures fixed spacing between elements */
+  margin-left: auto; /* Pushes section to the right */
+}
 
 /* ///////////////// GENERAL ///////////////// */
 
@@ -132,12 +139,6 @@
 
 /*Get Started Button */
 
-.button-container {
-  display: flex;
-  justify-content: right; 
-  right: 20px;
-  position: absolute;
-}
 
 .get-started-btn {
   background-color: #5ecfff; /* Updated color */
@@ -464,8 +465,8 @@
 
 }
 
-.mini-input-Wrapper{
-  position: relative; /*Needed to position the dropdown properly*/
+.mini-input-Wrapper {
+  position: relative;
   background-color: #101010;
   width: 100%;
   max-width: 200px; 
@@ -475,9 +476,7 @@
   box-shadow: 0px 0px 8px #555;
   display: flex;
   align-items: center;
-  margin: 0px 0px 0px 500px; /* Centered horizontally */
-  box-sizing: border-box;
-
+  margin: 0; /* Remove old margin */
 }
 
 .search-bar-input {

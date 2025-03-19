@@ -86,24 +86,13 @@ const AINewsfeed = () => {
   };
 
   const getSentimentColor = (score) => {
-    const colors = [
-      '#8B0000', // 0-20: Dark Red
-      '#FF0000', // 21-40: Red
-      '#FFD700', // 41-60: Dark Yellow
-      '#FFFF00', // 61-75: Yellow
-      '#90EE90', // 76-90: Light Green
-      '#006400'  // 91-100: Green
-    ];
-    const range = Math.floor(score / 16.67);
-    return colors[Math.min(range, 5)];
+    // Red (0) -> Yellow (50) -> Green (100) with controlled lightness
+    const hue = (score * 120) / 100;
+    const lightness = 50 - (score * 0.25); // 50% at 0 → 25% at 100
+    return `hsl(${hue}, 90%, ${lightness}%)`;
   };
-
-  const getTextColor = (score) => {
-    // Black text for yellow background (scores 61-75)
-    if (score >= 51 && score <= 75) return '#000';
-    // White text for darker backgrounds
-    return score <= 60 ? '#fff' : '#333';
-  };
+  
+  const getTextColor = () => '#ffffff'; // Explicit white
 
   return (
     <>

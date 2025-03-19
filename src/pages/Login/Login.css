@@ -13,7 +13,7 @@ body {
 
 .login-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   justify-content: space-between;
   padding-left: 5%;  /* Add space on the left */
   padding-right: 5%; /* Add space on the right */
@@ -27,7 +27,7 @@ body {
   justify-content: center;
   background: url('./image2.png') center/contain no-repeat;
   background-size: contain; /* Ensure the whole image is visible */
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .right-side {
