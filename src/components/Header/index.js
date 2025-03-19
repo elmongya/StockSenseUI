@@ -7,6 +7,7 @@ import StockSense from '../../assets/StockSense.png';
 
 const Header = () => {
   const location = useLocation();
+  const isLoginOrRegister = ["/Login", "/Register"].includes(location.pathname);
   const hideMiniSearchBar = ["/", "/Login", "/Register"].includes(location.pathname);
   const hideGetStartedButton = ["/Login", "/Register"].includes(location.pathname);
 
@@ -18,15 +19,19 @@ const Header = () => {
           <a href="/">
             <i className="fa fa-home"></i> Home
           </a>
-          <a href="/Newsfeed">
-            <i className="fa fa-newspaper"></i> AI Newsfeed
-          </a>
-          <a href="/Learn">
-            <i className="fa fa-lightbulb"></i> Learn
-          </a>
-          <a href="/About">
-            <i className="fa fa-info-circle"></i> About Us
-          </a>
+          {!isLoginOrRegister && (
+            <>
+              <a href="/Newsfeed">
+                <i className="fa fa-newspaper"></i> AI Newsfeed
+              </a>
+              <a href="/Learn">
+                <i className="fa fa-lightbulb"></i> Learn
+              </a>
+              <a href="/About">
+                <i className="fa fa-info-circle"></i> About Us
+              </a>
+            </>
+          )}
         </nav>
         {/* Flex container for search bar and button */}
         <div className="header-right-section">

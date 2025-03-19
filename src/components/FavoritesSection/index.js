@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiTrendingUp, FiTrendingDown, FiBarChart } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import '../../App.css'
 
 
@@ -20,17 +21,22 @@ export const FavoriteSection = () => {
         </div>
         <div id='favorite-commodity-section' style={{ display: 'flex', gap: '16px' }}>
         {commodityData.map((commodity, index) => (
-            <div key={index} className='commodity-card' >
-            <div style={{ fontSize: '20px', marginBottom: '8px' }}>{commodity.icon}</div>
-            <h3 style={{ margin: '0', fontSize: '18px' }}>{commodity.name}</h3>
-            <p style={{ margin: '4px 0', fontSize: '16px' }}>{commodity.value}</p>
-            <p style={{ margin: '4px 0', fontSize: '14px', color: commodity.change.startsWith('-') ? '#f87171' : '#4ade80' }}>{commodity.change}</p>
-            </div>
+            <Link 
+              key={index} 
+              to={`/stock/${commodity.name}`} 
+              style={{ textDecoration: 'none', color: 'inherit', flex: 1 }}
+            >
+              <div className='commodity-card'>
+                <div style={{ fontSize: '20px', marginBottom: '8px' }}>{commodity.icon}</div>
+                <h3 style={{ margin: '0', fontSize: '18px' }}>{commodity.name}</h3>
+                <p style={{ margin: '4px 0', fontSize: '16px' }}>{commodity.value}</p>
+                <p style={{ margin: '4px 0', fontSize: '14px', color: commodity.change.startsWith('-') ? '#f87171' : '#4ade80' }}>{commodity.change}</p>
+              </div>
+            </Link>
         ))}
         </div>
     </div>
   )
 }
-
 
 

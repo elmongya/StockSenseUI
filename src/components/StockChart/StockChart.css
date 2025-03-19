@@ -8,30 +8,14 @@
   margin-bottom: 30px;
 }
 
-/* Stock Header Section */
-.stock-header-section {
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 16px;
-}
-
-.stock-title-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.stock-name {
-  font-size: 28px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-}
-
-.stock-price-container {
+/* Price Display */
+.price-display {
   display: flex;
   align-items: baseline;
   gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stock-price {
@@ -57,47 +41,9 @@
   background-color: rgba(255, 77, 77, 0.1);
 }
 
-/* Stock Metrics Container */
-.stock-metrics-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  margin-bottom: 32px;
-  padding: 16px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-}
-
-.metrics-column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.metric-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.metric-label {
-  font-size: 14px;
-  color: #a1a1a1;
-  font-weight: 500;
-}
-
-.metric-value {
-  font-size: 16px;
-  color: #ffffff;
-  font-weight: 600;
-}
-
 /* Chart Wrapper */
 .chart-wrapper {
   height: 400px;
-  margin-top: 24px;
   background-color: rgba(255, 255, 255, 0.02);
   border-radius: 12px;
   padding: 16px;
@@ -110,10 +56,6 @@
     padding: 16px;
   }
   
-  .stock-name {
-    font-size: 24px;
-  }
-  
   .stock-price {
     font-size: 28px;
   }
@@ -122,8 +64,7 @@
     font-size: 16px;
   }
   
-  .stock-metrics-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .chart-wrapper {
+    height: 350px;
   }
 }

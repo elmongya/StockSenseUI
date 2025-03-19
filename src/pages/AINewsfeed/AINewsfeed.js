@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaRegClock, FaShare, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaRegClock, FaExternalLinkAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import Header from '../../components/Header';
 import './AINewsfeed.css';
 
@@ -17,6 +17,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 15,
       timeSaved: "2 mins saved",
+      postedDate: "1d ago",
       articleLink: "#"
     },
     {
@@ -29,6 +30,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 35,
       timeSaved: "3 mins saved",
+      postedDate: "2d ago",
       articleLink: "#"
     },
     {
@@ -41,6 +43,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 55,
       timeSaved: "4 mins saved",
+      postedDate: "3d ago",
       articleLink: "#"
     },
     {
@@ -53,6 +56,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 75,
       timeSaved: "2 mins saved",
+      postedDate: "4d ago",
       articleLink: "#"
     },
     {
@@ -65,6 +69,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 85,
       timeSaved: "3 mins saved",
+      postedDate: "5d ago",
       articleLink: "#"
     },
     {
@@ -77,6 +82,7 @@ const AINewsfeed = () => {
       ],
       sentiment: 95,
       timeSaved: "2 mins saved",
+      postedDate: "1w ago",
       articleLink: "#"
     }
   ];
@@ -125,14 +131,16 @@ const AINewsfeed = () => {
                     <FaRegClock className="action-icon" />
                     <span className="time-saved">{article.timeSaved}</span>
                 </div>
-                <div className="action-item clickable">
-                    <FaShare className="action-icon" />
-                    <span className="action-link">Share</span>
+                <div className="action-item">
+                    <FaRegCalendarAlt className="action-icon" />
+                    <span className="posted-date">{article.postedDate}</span>
                 </div>
-                <a href={article.articleLink} className="action-item clickable">
-                    <FaExternalLinkAlt className="action-icon" />
-                    <span className="action-link">Full Article</span>
-                </a>
+                <div className="full-article-container">
+                    <a href={article.articleLink} className="action-item clickable">
+                        <FaExternalLinkAlt className="action-icon" />
+                        <span className="action-link">Full Article</span>
+                    </a>
+                </div>
                 </div>
             </div>
             </div>

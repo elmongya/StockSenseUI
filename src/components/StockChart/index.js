@@ -31,17 +31,10 @@ const StockChart = () => {
     const [changePercent, setChangePercent] = useState(null);
     const [dateRange, setDateRange] = useState("1mo");
     const [dateLabels, setDateLabels] = useState({ start: '', end: '' });
-    const [open, setOpen] = useState(null);
-    const [high, setHigh] = useState(null);
-    const [low, setLow] = useState(null);
-    const [volume, setVolume] = useState(null);
-    const [marketCap, setMarketCap] = useState(null);
-    const [yearHigh, setYearHigh] = useState(null);
-    const [yearLow, setYearLow] = useState(null);
     const chartRef = useRef(null);
     const canvasRef = useRef(null);
 
-    const apiKey = 'N9QWQ7BE7TF8R9QP';
+    const apiKey = '5T3G6FZPKJ8VTCMQ';
     const symbol = 'AAPL';
 
     const rangeOptions = {
@@ -89,10 +82,6 @@ const StockChart = () => {
             const previous = stockArray[stockArray.length - 2];
 
             setLatestPrice(latest.close);
-            setOpen(latest.open);
-            setHigh(latest.high);
-            setLow(latest.low);
-            setVolume(latest.volume);
             setChange((latest.close - previous.close).toFixed(2));
             setChangePercent(((latest.close - previous.close) / previous.close * 100).toFixed(2));
 
@@ -106,23 +95,9 @@ const StockChart = () => {
         }
     }, [dateRange, apiKey, symbol]);
 
-    const fetchMarketData = useCallback(async () => {
-        const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${apiKey}`;
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            setMarketCap(data.MarketCapitalization);
-            setYearHigh(data['52WeekHigh']);
-            setYearLow(data['52WeekLow']);
-        } catch (error) {
-            console.error("Error fetching market data", error);
-        }
-    }, [apiKey, symbol]);
-
     useEffect(() => {
         fetchStockData();
-        fetchMarketData();
-    }, [fetchStockData, fetchMarketData]);
+    }, [fetchStockData]);
 
     useEffect(() => {
         if (stockData.length > 0 && canvasRef.current) {
@@ -178,59 +153,11 @@ const StockChart = () => {
 
     return (
         <div className="stock-chart-container">
-            <div className="stock-header-section">
-                <div className="stock-title-section">
-                    <h1 className="stock-name">Apple Inc. (AAPL)</h1>
-                    <div className="stock-price-container">
-                        <span className="stock-price">${latestPrice?.toFixed(2)}</span>
-                        <span className={`stock-change ${change >= 0 ? 'positive' : 'negative'}`}>
-                            {change >= 0 ? '+' : ''}{change} ({changePercent}%)
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="stock-metrics-container">
-                <div className="metrics-column">
-                    <div className="metric-item">
-                        <span className="metric-label">Open</span>
-                        <span className="metric-value">${open?.toFixed(2)}</span>
-                    </div>
-                    <div className="metric-item">
-                        <span className="metric-label">High</span>
-                        <span className="metric-value">${high?.toFixed(2)}</span>
-                    </div>
-                    <div className="metric-item">
-                        <span className="metric-label">Low</span>
-                        <span className="metric-value">${low?.toFixed(2)}</span>
-                    </div>
-                </div>
-
-                <div className="metrics-column">
-                    <div className="metric-item">
-                        <span className="metric-label">Market Cap</span>
-                        <span className="metric-value">{marketCap ? `$${(marketCap / 1e9).toFixed(2)}B` : 'N/A'}</span>
-                    </div>
-                    <div className="metric-item">
-                        <span className="metric-label">52W High</span>
-                        <span className="metric-value">${yearHigh || 'N/A'}</span>
-                    </div>
-                    <div className="metric-item">
-                        <span className="metric-label">52W Low</span>
-                        <span className="metric-value">${yearLow || 'N/A'}</span>
-                    </div>
-                </div>
-
-                <div className="metrics-column">
-                    <div className="metric-item">
-                        <span className="metric-label">Volume</span>
-                        <span className="metric-value">{volume?.toLocaleString() || 'N/A'}</span>
-                    </div>
-                    <div className="metric-item">
-                        <span className="metric-label">Date Range</span>
-                        <span className="metric-value">{dateRange}</span>
-                    </div>
-                </div>
+            <div className="price-display">
+                <span className="stock-price">${latestPrice?.toFixed(2)}</span>
+                <span className={`stock-change ${change >= 0 ? 'positive' : 'negative'}`}>
+                    {change >= 0 ? '+' : ''}{change} ({changePercent}%)
+                </span>
             </div>
 
             <div className="chart-wrapper">

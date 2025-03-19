@@ -218,6 +218,7 @@
   transform: translateX(-50%); /* Centering */
   top: calc(70% + 30px); /* Places it below `top-section`, with overlap */
   z-index: 9; /* Ensures it stays on top */
+  padding-top: 40px;
 }
 
 
@@ -336,6 +337,7 @@
 #why-us-section {
   background-color: #141416;
   padding: 20px;
+  padding-top: 80px;
 }
 
 .why-us-container { 
