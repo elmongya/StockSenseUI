@@ -1,12 +1,13 @@
 import React from 'react';
 import GetStartedButton from '../GetStartedButton';
+import MiniSearchBar from '../MiniSearchBar';
 import '../../App.css';
 import StockSense from '../../assets/StockSense.png';
 
 const Header =  () => {
   return (
     <div className="topnav">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></link>
         <div className="header-container">
             <nav className="nav-links">
             <a href="/">
@@ -25,6 +26,7 @@ const Header =  () => {
                 <i className="fa fa-lightbulb"></i> Learn
             </a>
             </nav>
+            <MiniSearchBar/>
             <GetStartedButton/>
       </div>
     </div>

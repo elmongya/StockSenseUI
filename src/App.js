@@ -8,6 +8,7 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Learn from "./pages/Learn/Learn";
+import AINewsfeed from './pages/AINewsfeed/AINewsfeed';
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/stock/:stockName" element={<StockPage/>} />
+
+        <Route path="/Newsfeed" element={<AINewsfeed/>} />
         
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

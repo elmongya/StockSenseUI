@@ -19,7 +19,8 @@
 
 .topnav {
   background-color: #000;
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
   transition: 0.25s ease;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   padding: 10px 20px;
@@ -463,6 +464,22 @@
 
 }
 
+.mini-input-Wrapper{
+  position: relative; /*Needed to position the dropdown properly*/
+  background-color: #101010;
+  width: 100%;
+  max-width: 200px; 
+  border-radius: 9999px;
+  height: 2.2rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #555;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 500px; /* Centered horizontally */
+  box-sizing: border-box;
+
+}
+
 .search-bar-input {
   background-color: #1c1c1c;
   border: none;
@@ -472,6 +489,27 @@
   outline: none;
   width: 100%;
   font-size: 1.25rem;
+}
+
+.mini-search-bar-input {
+  background-color: #101010;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search-bar-input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.mini-search-bar-input:focus {
+  border: none;
+  box-shadow: none;
 }
 
 /* input{
@@ -507,7 +545,7 @@ input:focus{
   max-height: 150px; /* Set max height for scroll */
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 10; /* Ensure it's above other elements */
+  z-index: 9999; /* Ensure it's above other elements */
 }
 
 .search-results li {

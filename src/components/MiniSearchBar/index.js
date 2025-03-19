@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import '../../App.css';
@@ -14,43 +14,12 @@ const validCompanies = [
     "Coca-Cola", "Pepsi", "Walmart", "Target", "Disney"
 ];
 
-const SearchBar=({setResults})=>{
+const MiniSearchBar=({setResults})=>{
     const [input, setInput] = useState("");
-    const [placeholder, setPlaceholder] = useState("");
-    const [placeholderIndex, setPlaceholderIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
     const [filteredResults, setFilteredResults] = useState([]);
+    const searchBarRef = useRef(null); // Ref for detecting clicks outside
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const currentText = placeholders[placeholderIndex];
-
-        const typeEffect = setTimeout(() => {
-            if (!isDeleting) {
-            // Typing effect
-            if (charIndex < currentText.length) {
-                setPlaceholder((prev) => prev + currentText[charIndex]);
-                setCharIndex((prev) => prev + 1);
-            } else {
-                setTimeout(() => setIsDeleting(true), 1000); // Wait before deleting
-            }
-            } else {
-            // Deleting effect
-            if (charIndex > 0) {
-                setPlaceholder((prev) => prev.slice(0, -1));
-                setCharIndex((prev) => prev - 1);
-            } else {
-                setIsDeleting(false);
-                setPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
-            }
-            }
-        }, isDeleting ? 50 : 150); // Typing speed
-    
-        return () => clearTimeout(typeEffect);
-
-    }, [charIndex, isDeleting, placeholderIndex]);
 
     const handleSelect = (company) => {
         navigate(`/stock/${company}`);
@@ -72,12 +41,25 @@ const SearchBar=({setResults})=>{
         setFilteredResults(results);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchBarRef.current && !searchBarRef.current.contains(event.target)) {
+                setFilteredResults([]); // Hide results if clicked outside
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
 
     return (
-        <div className="input-Wrapper">
+        <div className="mini-input-Wrapper" ref={searchBarRef}>
             <FaSearch id="search-icon"/>
-            <input placeholder={`Search for ${placeholder}...`}
-                className="search-bar-input"
+            <input placeholder={`Search...`}
+                className="mini-search-bar-input"
                 value={input}
                 onChange={(e) => handleChange(e.target.value)}
                 onKeyDown={(e) => {
@@ -99,4 +81,4 @@ const SearchBar=({setResults})=>{
     );
 };
 
-export default SearchBar;
+export default MiniSearchBar;

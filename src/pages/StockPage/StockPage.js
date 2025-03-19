@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import StockChart from "../../components/StockChart";
+import StockDashboard from "../../components/StockChart/StockDashboard";
 
 
 const stock_dummy_data = {
@@ -87,6 +88,7 @@ const StockPage = () => {
     return (
         <>
           <Header />
+          <StockDashboard/>
           <StockChart/>
           <div className="stock-page-container">
             <div className="main-content">
