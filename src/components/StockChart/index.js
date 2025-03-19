@@ -5,6 +5,7 @@ import {
     LinearScale,
     PointElement,
     LineElement,
+    LineController,
     Title,
     Tooltip,
     Legend
@@ -17,6 +18,7 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
+    LineController,
     Title,
     Tooltip,
     Legend
@@ -175,59 +177,64 @@ const StockChart = () => {
     }, [stockData]);
 
     return (
-        <div className="p-6 bg-black text-white min-h-screen">
-            <div className="flex justify-between items-start flex-wrap gap-4">
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-bold">Apple Inc. (AAPL)</h1>
-                    <div className="text-3xl font-semibold">
-                        ${latestPrice?.toFixed(2)}
-                        <span className={`text-lg ml-3 ${change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+        <div className="stock-chart-container">
+            <div className="stock-header-section">
+                <div className="stock-title-section">
+                    <h1 className="stock-name">Apple Inc. (AAPL)</h1>
+                    <div className="stock-price-container">
+                        <span className="stock-price">${latestPrice?.toFixed(2)}</span>
+                        <span className={`stock-change ${change >= 0 ? 'positive' : 'negative'}`}>
                             {change >= 0 ? '+' : ''}{change} ({changePercent}%)
                         </span>
                     </div>
                 </div>
+            </div>
 
-                <div className="flex gap-8 flex-wrap">
-                    <div className="space-y-2 min-w-[180px]">
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">Open</span>
-                            <span>${open?.toFixed(2)}</span>
-                        </div>
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">High</span>
-                            <span>${high?.toFixed(2)}</span>
-                        </div>
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">Low</span>
-                            <span>${low?.toFixed(2)}</span>
-                        </div>
+            <div className="stock-metrics-container">
+                <div className="metrics-column">
+                    <div className="metric-item">
+                        <span className="metric-label">Open</span>
+                        <span className="metric-value">${open?.toFixed(2)}</span>
                     </div>
+                    <div className="metric-item">
+                        <span className="metric-label">High</span>
+                        <span className="metric-value">${high?.toFixed(2)}</span>
+                    </div>
+                    <div className="metric-item">
+                        <span className="metric-label">Low</span>
+                        <span className="metric-value">${low?.toFixed(2)}</span>
+                    </div>
+                </div>
 
-                    <div className="space-y-2 min-w-[180px]">
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">Mkt Cap</span>
-                            <span>{marketCap ? `${(marketCap / 1e12).toFixed(2)}T` : 'N/A'}</span>
-                        </div>
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">52W High</span>
-                            <span>${yearHigh}</span>
-                        </div>
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">52W Low</span>
-                            <span>${yearLow}</span>
-                        </div>
-                        <div className="flex justify-between gap-4">
-                            <span className="text-gray-400">Volume</span>
-                            <span>{volume?.toLocaleString()}</span>
-                        </div>
+                <div className="metrics-column">
+                    <div className="metric-item">
+                        <span className="metric-label">Market Cap</span>
+                        <span className="metric-value">{marketCap ? `$${(marketCap / 1e9).toFixed(2)}B` : 'N/A'}</span>
+                    </div>
+                    <div className="metric-item">
+                        <span className="metric-label">52W High</span>
+                        <span className="metric-value">${yearHigh || 'N/A'}</span>
+                    </div>
+                    <div className="metric-item">
+                        <span className="metric-label">52W Low</span>
+                        <span className="metric-value">${yearLow || 'N/A'}</span>
+                    </div>
+                </div>
+
+                <div className="metrics-column">
+                    <div className="metric-item">
+                        <span className="metric-label">Volume</span>
+                        <span className="metric-value">{volume?.toLocaleString() || 'N/A'}</span>
+                    </div>
+                    <div className="metric-item">
+                        <span className="metric-label">Date Range</span>
+                        <span className="metric-value">{dateRange}</span>
                     </div>
                 </div>
             </div>
 
-            <div className="mt-8">
-                <div style={{ height: '400px' }}>
-                    <canvas ref={canvasRef}></canvas>
-                </div>
+            <div className="chart-wrapper">
+                <canvas ref={canvasRef}></canvas>
             </div>
         </div>
     );

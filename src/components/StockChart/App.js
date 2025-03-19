@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App; // This was likely missing
+export default App;

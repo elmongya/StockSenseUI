@@ -4,11 +4,8 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import StockChart from "../../components/StockChart";
-import StockDashboard from "../../components/StockChart/StockDashboard";
-
 
 const stock_dummy_data = {
-
     "Apple": {
         "score": 87,
         "news": [
@@ -65,47 +62,64 @@ const stock_dummy_data = {
         ],
         "description": "Google, a subsidiary of Alphabet Inc., dominates the search engine market and develops AI-driven products, cloud services, and advertising solutions."
     }
-
 }
 
 const StockPage = () => {
   const { stockName } = useParams();
   const [stockData, setStockData] = useState(null);
 
-//   useEffect(() => {
-//     // Simulate an API request (replace with a real API)
-//     fetch(`https://api.example.com/stocks/${stockName}`)
-//       .then((res) => res.json())
-//       .then((data) => setStockData(data))
-//       .catch((error) => console.error("Error fetching stock data:", error));
-//   }, [stockName]);
-
-    useEffect(() => {
+  useEffect(() => {
     // Simulate an API request (replace with a real API)
-        setStockData(stock_dummy_data[stockName])
-    }, [stockName]);
+    setStockData(stock_dummy_data[stockName])
+  }, [stockName]);
 
-    return (
-        <>
-          <Header />
-          <StockDashboard/>
-          <StockChart/>
-          <div className="stock-page-container">
-            <div className="main-content">
-              <h1 className="stock-title">Stock Details for {stockName}</h1>
-              {stockData ? (
-                <div className="stock-info">
-                  <p className="score">Score: {stockData.score}</p>
-                  <p className="news-title">News Title: {stockData.news[0].title}</p>
-                </div>
-              ) : (
-                <p>Loading stock data...</p>
-              )}
+  return (
+    <>
+      <Header />
+      <div className="stock-page-container">
+        <div className="stock-header">
+          <h1 className="stock-title">{stockName}</h1>
+          {stockData && (
+            <div className="stock-score">
+              <span className="score-label">StockSense Score:</span>
+              <span className="score-value">{stockData.score}</span>
+            </div>
+          )}
+        </div>
+        
+        {/* Stock Chart Component */}
+        <div className="chart-container">
+          <StockChart />
+        </div>
+        
+        {/* Stock Information Sections */}
+        {stockData && (
+          <div className="stock-info-container">
+            <div className="stock-overview">
+              <h2 className="section-title">Overview</h2>
+              <p className="description">{stockData.description}</p>
+            </div>
+            
+            <div className="stock-news">
+              <h2 className="section-title">Latest News</h2>
+              <div className="news-list">
+                {stockData.news.map((item, index) => (
+                  <div key={index} className="news-item">
+                    <h3 className="news-title">{item.title}</h3>
+                    <div className="news-meta">
+                      <span className="news-source">{item.source}</span>
+                      <span className="news-time">{new Date(item.time).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <Footer />
-        </>
-    );
+        )}
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default StockPage;

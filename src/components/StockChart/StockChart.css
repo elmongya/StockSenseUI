@@ -1,45 +1,129 @@
 /* Stock Chart Container */
 .stock-chart-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #1c1c1c;
+  border-radius: 16px;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 
-/* Time Range Selector */
-.time-range-selector {
+/* Stock Header Section */
+.stock-header-section {
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.stock-title-section {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* Buttons */
-.time-range-selector button {
-  background: #21BF96;
-  color: white;
-  border: none;
-  padding: 10px 16px;
+.stock-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.stock-price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.stock-price {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.stock-change {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.stock-change.positive {
+  color: #00FF66;
+  background-color: rgba(0, 255, 102, 0.1);
+}
+
+.stock-change.negative {
+  color: #FF4D4D;
+  background-color: rgba(255, 77, 77, 0.1);
+}
+
+/* Stock Metrics Container */
+.stock-metrics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.metrics-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-label {
   font-size: 14px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s;
+  color: #a1a1a1;
+  font-weight: 500;
 }
 
-.time-range-selector button:hover {
-  background: #1aa67f;
-  transform: scale(1.05);
+.metric-value {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
 }
 
-.time-range-selector button.active {
-  background: #167e62;
+/* Chart Wrapper */
+.chart-wrapper {
+  height: 400px;
+  margin-top: 24px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Chart Styling */
-.stock-chart-container .js-plotly-plot {
-  width: 100%;
-  height: 100%;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .stock-chart-container {
+    padding: 16px;
+  }
+  
+  .stock-name {
+    font-size: 24px;
+  }
+  
+  .stock-price {
+    font-size: 28px;
+  }
+  
+  .stock-change {
+    font-size: 16px;
+  }
+  
+  .stock-metrics-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
