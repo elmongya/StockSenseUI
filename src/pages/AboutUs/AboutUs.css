@@ -103,11 +103,46 @@
 }
 
 /* Flip card container */
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .flip-card {
   background: transparent;
   width: 400px;
   height: 340px;
   perspective: 1000px;
+  opacity: 0;
+  animation: slideIn 1.4s ease-out forwards;
+  animation-delay: calc(0.3s * var(--card-index));
+}
+
+.flip-card:nth-child(1) {
+  --card-index: 1;
+}
+
+.flip-card:nth-child(2) {
+  --card-index: 2;
+}
+
+.flip-card:nth-child(3) {
+  --card-index: 3;
+}
+
+.flip-card:nth-child(4) {
+  --card-index: 4;
+}
+
+.flip-card:nth-child(5) {
+  --card-index: 5;
 }
 
 .card-inner {
