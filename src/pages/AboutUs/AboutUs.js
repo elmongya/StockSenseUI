@@ -9,6 +9,24 @@ import { AiOutlineTool, AiOutlineClose } from "react-icons/ai";
 import Header from "../../components/Header";
 import { Footer } from "../../components/Footer";
 
+const techTopics = [
+    {
+        topic: "Natural Language Processing (NLP)",
+        description: "NLP is a field of AI focused on enabling machines to understand, interpret, and generate human language. It powers applications like chatbots, translation, and sentiment analysis. NLP was used to analyze and interpret content from scraped news",
+        image: "NLP.png",
+    },
+    {
+        topic: "Large Language Models (LLMs)",
+        description: "LLMs are advanced deep learning models trained on vast amounts of text data to generate coherent and context-aware text. In this product, an LLM was trained to generate the sentiment score by analyzing news scraped from the internet.",
+        image: "LLM.png",
+    },
+    {
+        topic: "Prompt Engineering",
+        description: "Prompt engineering is the art of crafting effective inputs for AI models to optimize their responses. It played a crucial role in fine-tuning the LLM for interpreting the data sources and coming up with an accurate sentiment score.",
+        image: "PromptEngineering2.png",
+    }
+];
+
 const teamMembers = [
     {
         name: "Adam ",
@@ -54,6 +72,7 @@ const teamMembers = [
 
 const AboutUs = () => {
   const [selectedResume, setSelectedResume] = useState(null);
+  const [flipped, setFlipped] = useState(Array(techTopics.length).fill(false));
   const resumeRef = useRef(null);
 
   useEffect(() => {
@@ -66,16 +85,28 @@ const AboutUs = () => {
     setSelectedResume(resume);
   };
 
+  const handleFlip = (index) => {
+    setFlipped(prevState => {
+        const newFlipped = [...prevState];
+        newFlipped[index] = !newFlipped[index];
+        return newFlipped;
+    });
+    };
+
   return (
     <>
         <Header/>
         <div className="about-container">
             <h1 className="about-title">About Us</h1>
             <p className="about-text">
-                Welcome to our platform! We are passionate about creating innovative 
-                solutions that connect people with the right resources to succeed. 
-                Our mission is to bridge the gap between knowledge and opportunity 
-                by leveraging technology to provide seamless experiences.
+            Welcome to our platform! We are dedicated to leveraging cutting-edge technology, particularly artificial intelligence, 
+            to help individuals make informed and confident investment decisions. Our mission is to bridge the gap between knowledge 
+            and opportunity by developing innovative solutions that analyze sentiment scores based on the perception of companies in the market. 
+            By introducing a new metric that evaluates sentiment beyond traditional financial indicators, we aim to provide investors with deeper 
+            insights into how a company is perceived, helping them make data-driven choices. Our platform is designed to be an essential tool in 
+            every investor’s journey, offering seamless experiences that empower users with valuable, real-time information. We believe that by 
+            integrating AI-driven sentiment analysis into the investment process, we can revolutionize the way people interact with financial 
+            markets and ensure that investors, both new and experienced, have access to reliable and actionable insights.
             </p>
 
             <div className="about-grid">
@@ -100,6 +131,28 @@ const AboutUs = () => {
                         making meaningful changes through ethical and forward-thinking solutions.
                     </p>
                 </div>
+            </div>
+
+            <h2 style={{ textAlign: "center", fontSize: "44px", margin: "140px 0 40px" }}>How Does it Work?</h2>
+
+            <div className="tech-card-container">
+                {techTopics.map((topic, index) => (
+                    <div key={index} className={`tech-card ${flipped[index] ? "tech-card-flipped" : ""}`} onClick={() => handleFlip(index)}>
+                        <div className="tech-card-inner">
+                            {/* Front Side */}
+                            <div className="tech-card-front">
+                                <h3 className="tech-card-title">{topic.topic}</h3>
+                                <button className="tech-card-button">More Information</button>
+                            </div>
+
+                            {/* Back Side */}
+                            <div className="tech-card-back">
+                                <img src={require(`../../assets/${topic.image}`)} alt={topic.topic} className="tech-card-image" />
+                                <p className="tech-card-description">{topic.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
 
             <h2 style={{ textAlign: "center", fontSize: "44px", margin: "50px 0 40px" }}>Meet the Team</h2>
